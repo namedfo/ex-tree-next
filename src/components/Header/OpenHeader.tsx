@@ -16,7 +16,7 @@ export default function OpenHeader() {
     if (!isShow) return null
 
     return (
-        <div className='fixed h-full w-full z-[99] left-0 top-0 bg-[#00000052]'>
+        <div className='fixed h-full w-full z-[99] left-0 top-0 bg-[#0000007a]'>
             <div ref={ref} className='w-[98%] sm:w-[640px] bg-white shadow-select rounded-[14px] absolute left-[50%] translate-x-[-50%] top-[4px] flex flex-col min-h-[42px]'>
                 <Main toggleIsShow={toggleIsShow} />
                 <Links />
