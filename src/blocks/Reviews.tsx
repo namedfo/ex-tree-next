@@ -56,7 +56,7 @@ export default function Reviews() {
                             <span className='opacity-[0.6] text-[16px]'>
                                 {formatDistanceToNow(
                                     new Date(feedback?.published_at * 1000),
-                                    { locale: ru, addSuffix: true }
+                                    { addSuffix: true }
                                 )}
                             </span>
                             <a

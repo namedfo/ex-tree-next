@@ -7,20 +7,9 @@ import Royalty from '@/blocks/Royalty'
 import Title from '@/blocks/Title'
 import PageLayout from '@/layouts/PageLayout'
 
-const blocks = [
-    {
-
-    }
-]
 
 
-export default async function Page({
-    params: { id },
-}: {
-    params: { id: string }
-}) {
-
-
+export default async function Page() {
 
     return (
         <PageLayout>
