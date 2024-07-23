@@ -21,12 +21,34 @@ export default function CourseList() {
                 </span>
             </div>
             <div className='flex flex-col mt-[6px]'>
-                <Element />
-                <Element />
-                <Element />
-                <Element />
-                <Element />
-                <Element />
+                {isShowList
+                    ? (
+                        <>
+                            <Element />
+                            <Element />
+                            <Element />
+                            <Element />
+                            <Element />
+                            <Element />
+                            <Element />
+                            <Element />
+                            <Element />
+                            <Element />
+                            <Element />
+                            <Element />
+                        </>
+                    )
+                    : (
+                        <>
+                            <Element />
+                            <Element />
+                            <Element />
+                            <Element />
+                            <Element />
+                            <Element />
+                        </>
+                    )
+                }
             </div>
             <button
                 onClick={toggleIsShowList}

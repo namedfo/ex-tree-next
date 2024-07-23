@@ -1,16 +1,49 @@
+'use client'
 import { MapPin } from 'lucide-react'
+import { useState } from 'react'
 
 export default function Offices() {
+    const [isShowList, setIsShowList] = useState(false)
+
+
+    const toggleIsShowList = () => setIsShowList(prevIsShow => !prevIsShow)
+
+
     return (
         <div className='flex flex-col mt-[40px] gap-[10px]'>
             <span className='font-[500]'>
                 Адреса офисов
             </span>
-            <div className='flex flex-col'>
-                <Office />
+            <div className='flex flex-col gap-[10px]'>
+                {isShowList
+                    ? (
+                        <>
+                            <Office />
+                            <Office />
+                            <Office />
+                            <Office />
+                            <Office />
+                            <Office />
+                            <Office />
+                            <Office />
+                        </>
+                    )
+                    : (
+                        <>
+                            <Office />
+                            <Office />
+                        </>
+                    )
+                }
             </div>
-            <button className='mt-[10px] bg-white rounded-[14px] py-[10px] flex justify-center'>
-                Показать все офисы
+            <button
+                onClick={toggleIsShowList}
+                className='mt-[10px] bg-white rounded-[14px] py-[10px] flex justify-center'
+            >
+                {isShowList
+                    ? 'Скрыть офисы'
+                    : 'Показать все офисы'
+                }
             </button>
         </div>
     )
