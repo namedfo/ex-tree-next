@@ -1,8 +1,17 @@
-export default function ProfitableTerms() {
+import { IProfitableTermsTexts } from '@/app/[page]/profitable_terms'
+
+interface IProfitableTermsProps {
+    texts: IProfitableTermsTexts
+}
+
+
+export default function ProfitableTerms({
+    texts
+}: IProfitableTermsProps) {
     return (
         <div className='flex flex-col mt-[40px] gap-[12px]'>
             <span className='font-[500]'>
-                Выгодные условия
+                {texts.title}
             </span>
             <div className='grid grid-cols-2 gap-[10px]'>
                 <Element />

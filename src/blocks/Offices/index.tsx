@@ -2,7 +2,9 @@
 import { MapPin } from 'lucide-react'
 import { useState } from 'react'
 
-export default function Offices() {
+export default function Offices({
+
+}: any) {
     const [isShowList, setIsShowList] = useState(false)
 
 

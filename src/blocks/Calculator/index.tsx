@@ -1,6 +1,8 @@
 import CurrencySelect from './CurrencySelect'
 
-export default function Calculator() {
+export default function Calculator({
+    
+}: any) {
     return (
         <div className='flex flex-col mt-[10px] p-[14px] bg-white rounded-[14px]'>
             <div className='flex justify-between'>

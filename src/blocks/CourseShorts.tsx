@@ -1,4 +1,4 @@
-export default function CourseShorts() {
+export default function CourseShorts({ data }: any) {
     return (
         <div className='flex gap-[10px] min-h-[60px] overflow-x-auto'>
             <Course />
