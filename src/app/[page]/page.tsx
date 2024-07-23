@@ -28,7 +28,7 @@ export default async function Page() {
             <div className='min-h-[40px] w-full flex items-center justify-center'>
                 <div className='pl-[6px] pb-[6px] flex items-center text-[13px] text-gray-500'>
                     <span className="leading-[12px] font-[500] mr-[5px]">
-                        © 2024 -
+                        © 2001 -
                     </span>
                     <div className='flex items-center pt-[1px]'>
                         <Infinity strokeWidth={1.8} size={16} />,
