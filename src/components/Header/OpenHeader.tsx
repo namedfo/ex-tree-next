@@ -1,6 +1,7 @@
 import { X } from 'lucide-react'
 import { useRef } from 'react'
 import { useOnClickOutside } from 'usehooks-ts'
+import Logo from './Logo'
 import { useHeaderStore } from './useHeaderStore'
 
 export default function OpenHeader() {
@@ -16,7 +17,7 @@ export default function OpenHeader() {
     if (!isShow) return null
 
     return (
-        <div className='fixed h-full w-full z-[99] left-0 top-0 bg-[#00000056]'>
+        <div className='fixed h-full w-full z-[99] left-0 top-0 bg-[#00000017]'>
             <div ref={ref} className='w-[98%] sm:w-[640px] bg-white shadow-select rounded-[14px] absolute left-[50%] translate-x-[-50%] top-[4px] flex flex-col min-h-[42px]'>
                 <Main toggleIsShow={toggleIsShow} />
                 <Links />
@@ -59,11 +60,7 @@ const Main = ({
 
     return (
         <div className='flex items-center h-[42px] justify-between'>
-            <img
-                src="https://ex24images.b-cdn.net/icon/exnew042024.png"
-                alt="logo"
-                className='h-[40px] ml-[10px]'
-            />
+            <Logo />
             <div className='flex items-center mr-[6px]'>
                 <button
                     onClick={toggleIsShow}

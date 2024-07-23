@@ -1,5 +1,6 @@
 'use client'
 import { MenuIcon } from 'lucide-react'
+import Logo from './Logo'
 import OpenHeader from './OpenHeader'
 import { useHeaderStore } from './useHeaderStore'
 
@@ -15,13 +16,9 @@ export default function Header() {
                     <OpenHeader />
                 )
                 : (
-                    <div className='w-[640px] flex justify-between items-center px-[10px]'>
-                        <img
-                            src="https://ex24images.b-cdn.net/icon/exnew042024.png"
-                            alt="logo"
-                            className='h-[40px]'
-                        />
-                        <div className='flex items-center'>
+                    <div className='w-[640px] flex justify-between items-center'>
+                        <Logo />
+                        <div className='flex items-center mr-[10px]'>
                             <button onClick={toggleIsShow}>
                                 <MenuIcon />
                             </button>

@@ -1,3 +1,5 @@
+import CurrencySelect from './CurrencySelect'
+
 export default function Calculator() {
     return (
         <div className='flex flex-col mt-[10px] p-[14px] bg-white rounded-[14px]'>
@@ -24,13 +26,7 @@ export default function Calculator() {
                         placeholder='Введите сумму..'
                         className='px-[12px] py-[5px] w-full pr-[100px] rounded-[10px] border bg-zinc-50 shadow-sm'
                     />
-                    <div
-                        className='bg-[#FFD747] px-[12px] h-[28px] flex items-center rounded-full absolute right-[3px] top-[50%] translate-y-[-50%]'
-                    >
-                        <span className='font-[550] text-slate-700 text-[12px]'>
-                            USDT
-                        </span>
-                    </div>
+                    <CurrencySelect />
                 </div>
             </div>
             <div className='flex flex-col mt-[14px] gap-[2px]'>

@@ -1,3 +1,5 @@
+import { MapPin } from 'lucide-react'
+
 export default function Offices() {
     return (
         <div className='flex flex-col mt-[40px] gap-[10px]'>
@@ -48,8 +50,11 @@ const Office = () => {
                 <span>
                     Адресс
                 </span>
-                <button className='py-[8px] bg-zinc-100 rounded-[10px]'>
-                    Построить маршрут
+                <button className='flex items-center gap-[8px] justify-center py-[8px] bg-zinc-100 rounded-[10px]'>
+                    <MapPin size={19} />
+                    <span>
+                        Построить маршрут
+                    </span>
                 </button>
             </div>
         </div>
