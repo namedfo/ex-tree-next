@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import Banks from './Banks'
 import Calculator from './Calculator'
 import CardWithImage from './CardWithImage'
+import CourseList from './CourseList'
 import CourseShorts from './CourseShorts'
 import Faq from './Faq'
 import Map from './Map'
@@ -12,12 +13,11 @@ import Reviews from './Reviews'
 import Royalty from './Royalty'
 import Text from './Text'
 import Title from './Title'
-import CourseList from './CourseList'
 
 
 
 const getBlock = (data: any): ReactNode | null => {
-    return <Block {...{ name: data.name, ...data.content }} />
+    return <Block {...data} />
 }
 
 

@@ -1,81 +1,43 @@
-'use client'
-import { ChevronDown, ChevronUp } from 'lucide-react'
-import { useState } from 'react'
+'use server'
+import Client from './Client'
+import Server from './Server'
 
-export default function CourseList({
+export default async function CourseList({
     texts,
-    data
+    data,
 }: any) {
-    const [isShowList, setIsShowList] = useState(false)
-
-    const toggleIsShowList = () => setIsShowList(prevIsShowList => !prevIsShowList)
 
     return (
         <div className='flex flex-col mt-[40px] pt-[12px] bg-white rounded-[14px]'>
             <div className='flex font-[600]  px-[12px] text-zinc-500 text-[14px]'>
                 <span className='w-[50%]'>
-                    Валюта
+                    {texts?.currency}
                 </span>
                 <span className='w-[25%]'>
-                    Покупка
+                    {texts?.buy}
                 </span>
                 <span className='w-[25%]'>
-                    Продажа
+                    {texts?.sell}
                 </span>
             </div>
             <div className='flex flex-col mt-[6px]'>
-                {isShowList
-                    ? (
+                <Client
+                    all={(
                         <>
-                            <Element />
-                            <Element />
-                            <Element />
-                            <Element />
-                            <Element />
-                            <Element />
-                            <Element />
-                            <Element />
-                            <Element />
-                            <Element />
-                            <Element />
-                            <Element />
+                            {data?.items?.map((item: any) => (
+                                <Server key={item.id} {...item} />
+                            ))}
                         </>
-                    )
-                    : (
+                    )}
+                    small={(
                         <>
-                            <Element />
-                            <Element />
-                            <Element />
-                            <Element />
-                            <Element />
-                            <Element />
+                            {data?.items?.slice(0, data?.init_count ?? 3).map((item: any) => (
+                                <Server key={item.id} {...item} />
+                            ))}
                         </>
-                    )
-                }
+                    )}
+                />
             </div>
-            <button
-                onClick={toggleIsShowList}
-                className='flex justify-center rounded-[16px] mb-[6px] mt-[8px] font-[550] py-[8px] w-full items-center gap-[8px]'
-            >
-                {isShowList
-                    ? (
-                        <>
-                            <span>
-                                Скрыть все валюты
-                            </span>
-                            <ChevronUp size={20} />
-                        </>
-                    )
-                    : (
-                        <>
-                            <span>
-                                Показать все валюты
-                            </span>
-                            <ChevronDown size={20} />
-                        </>
-                    )
-                }
-            </button>
         </div>
     )
 }
