@@ -1,23 +1,31 @@
-import { IBanksTexts } from '@/app/[page]/banks'
+'use client'
+import Image from 'next/image'
 
 interface IBanksProps {
-    texts: IBanksTexts
+    texts: any
+    data: any
 }
 
 export default function Banks({
-    texts
+    texts,
+    data
 }: IBanksProps) {
     return (
         <div className='mt-[40px] flex flex-col gap-[10px]'>
-            <span className='font-[500]'>
-                {texts.title}
+            <span className='font-[500] text-[18px]'>
+                {texts?.title}
             </span>
             <div className='rounded-[14px] py-[16px] px-[10px] bg-white flex justify-around'>
-                <div className='h-[32px] w-[32px] bg-zinc-600 rounded-[6px]' />
-                <div className='h-[32px] w-[32px] bg-zinc-600 rounded-[6px]' />
-                <div className='h-[32px] w-[32px] bg-zinc-600 rounded-[6px]' />
-                <div className='h-[32px] w-[32px] bg-zinc-600 rounded-[6px]' />
-                <div className='h-[32px] w-[32px] bg-zinc-600 rounded-[6px]' />
+                {data?.icons?.map((icon: string) => (
+                    <div className='h-[40px] w-[40px] relative'>
+                        <Image
+                            src={icon}
+                            fill
+                            className='rounded-[6px]'
+                            alt="image_icon"
+                        />
+                    </div>
+                ))}
             </div>
         </div>
     )

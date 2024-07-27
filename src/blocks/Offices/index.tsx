@@ -13,7 +13,7 @@ export default function Offices({
 
     return (
         <div className='flex flex-col mt-[40px] gap-[10px]'>
-            <span className='font-[500]'>
+            <span className='font-[500] text-[18px]'>
                 Адреса офисов
             </span>
             <div className='flex flex-col gap-[10px]'>
@@ -40,7 +40,7 @@ export default function Offices({
             </div>
             <button
                 onClick={toggleIsShowList}
-                className='mt-[10px] bg-white rounded-[14px] py-[10px] flex justify-center'
+                className='bg-white rounded-[14px] py-[10px] flex justify-center'
             >
                 {isShowList
                     ? 'Скрыть офисы'

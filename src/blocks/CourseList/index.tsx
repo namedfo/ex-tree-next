@@ -2,7 +2,10 @@
 import { ChevronDown, ChevronUp } from 'lucide-react'
 import { useState } from 'react'
 
-export default function CourseList() {
+export default function CourseList({
+    texts,
+    data
+}: any) {
     const [isShowList, setIsShowList] = useState(false)
 
     const toggleIsShowList = () => setIsShowList(prevIsShowList => !prevIsShowList)

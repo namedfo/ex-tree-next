@@ -1,6 +1,7 @@
 import { X } from 'lucide-react'
 import { useRef } from 'react'
 import { useOnClickOutside } from 'usehooks-ts'
+import ChangeLanguage from './ChangeLanguage'
 import Logo from './Logo'
 import { useHeaderStore } from './useHeaderStore'
 
@@ -61,7 +62,8 @@ const Main = ({
     return (
         <div className='flex items-center h-[42px] justify-between'>
             <Logo />
-            <div className='flex items-center mr-[6px]'>
+            <div className='flex items-center gap-[12px] mr-[6px]'>
+                <ChangeLanguage />
                 <button
                     onClick={toggleIsShow}
                     className='p-[6px] rounded-[8px] bg-zinc-100'

@@ -1,5 +1,6 @@
 'use client'
 import { MenuIcon } from 'lucide-react'
+import ChangeLanguage from './ChangeLanguage'
 import Logo from './Logo'
 import OpenHeader from './OpenHeader'
 import { useHeaderStore } from './useHeaderStore'
@@ -18,7 +19,8 @@ export default function Header() {
                 : (
                     <div className='w-[640px] flex justify-between items-center'>
                         <Logo />
-                        <div className='flex items-center mr-[10px]'>
+                        <div className='flex gap-[16px] items-center mr-[10px]'>
+                            <ChangeLanguage />
                             <button onClick={toggleIsShow}>
                                 <MenuIcon />
                             </button>
