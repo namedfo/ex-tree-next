@@ -5,7 +5,7 @@ import { Metadata } from 'next'
 
 
 async function getData(page: string) {
-    const res = await fetch(`http://localhost:3000/api/page?name=${page}`, { cache: 'no-store' })
+    const res = await fetch(`https://ex-crm.com/api/landing`, { cache: 'no-store' })
 
     if (!res.ok) {
         throw new Error('Failed to fetch data')
@@ -40,9 +40,7 @@ export default async function Page({
     params: { page: string }
 }) {
 
-    const { data } = await getData(params.page)
-
-    console.log(data)
+    const data = await getData(params.page)
 
     return (
         <PageLayout>

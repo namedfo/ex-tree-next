@@ -4,12 +4,17 @@
 export default async function Server({
     currency,
     buy,
-    sell
+    sell,
+    logo
 }: any) {
     return (
         <div className='flex font-[550] justify-between px-[10px] py-[7px] text-[15px] odd:bg-zinc-100'>
             <div className='flex gap-[8px] items-center w-[50%]'>
-                <div className='w-[16px] h-[16px] rounded-full bg-zinc-400' />
+                <img
+                    src={logo}
+                    alt="logo_currency"
+                    className='h-[24px] w-[24px] rounded-full border'
+                />
                 <span className='font-[600]'>
                     {currency}
                 </span>

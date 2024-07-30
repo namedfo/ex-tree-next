@@ -1,19 +1,31 @@
-interface ICourseShortsProps {
-    data: any
+import cn from 'clsx'
+
+interface IRate {
+    title: string
+    rate: number
+    percent: number
+    color: string
 }
 
-export default function CourseShorts({ data }: any) {
 
-    console.log(data)
+interface ICourseShortsProps {
+    data: {
+        items: IRate[] | []
+    }
+}
+
+
+
+
+export default function CourseShorts({ data }: ICourseShortsProps) {
 
 
     return (
         <div className='flex gap-[10px] min-h-[60px] overflow-x-auto'>
-            {data?.items !== undefined && Object.entries(data?.items)?.map(([key, value]: any) => (
+            {data?.items?.length > 0 && data?.items?.map((item: IRate) => (
                 <Course
-                    key={key}
-                    currency={key}
-                    value={value}
+                    key={item.title}
+                    {...item}
                 />
             ))}
         </div>
@@ -22,20 +34,28 @@ export default function CourseShorts({ data }: any) {
 
 
 const Course = ({
-    currency,
-    value
-}: any) => {
+    title,
+    rate,
+    percent,
+    color
+}: IRate) => {
     return (
         <div className='rounded-[14px] min-w-[130px] flex flex-col bg-white px-[12px] py-[6px]'>
             <span className='font-[600] text-[14px] text-slate-800'>
-                {currency}
+                {title}
             </span>
             <div className='flex'>
                 <span className='font-[700]'>
-                    {value[0]}
+                    {rate}
                 </span>
-                <span className='font-[550] px-[10px] text-[#25CB14]'>
-                    {value[1]}
+                <span
+                    style={{
+                        color
+                    }}
+                    className={cn(
+                        'font-[550] pl-[14px] pr-[10px]',
+                    )}>
+                    {percent}%
                 </span>
             </div>
         </div>

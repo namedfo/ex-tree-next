@@ -2,8 +2,24 @@
 import { MapPin } from 'lucide-react'
 import { useState } from 'react'
 
-export default function Offices({
 
+
+type TOffice = {
+    id: number
+    title: string
+    photo: string
+    work_time: {
+        between: string
+        status: string
+        status_type: string
+    }
+    address: string
+}
+
+
+export default function Offices({
+    data,
+    text
 }: any) {
     const [isShowList, setIsShowList] = useState(false)
 
@@ -17,26 +33,12 @@ export default function Offices({
                 Адреса офисов
             </span>
             <div className='flex flex-col gap-[10px]'>
-                {isShowList
-                    ? (
-                        <>
-                            <Office />
-                            <Office />
-                            <Office />
-                            <Office />
-                            <Office />
-                            <Office />
-                            <Office />
-                            <Office />
-                        </>
-                    )
-                    : (
-                        <>
-                            <Office />
-                            <Office />
-                        </>
-                    )
-                }
+                {data?.map((office: TOffice) => (
+                    <Office
+                        key={office.id}
+                        {...office}
+                    />
+                ))}
             </div>
             <button
                 onClick={toggleIsShowList}
@@ -52,18 +54,24 @@ export default function Offices({
 }
 
 
-const Office = () => {
+const Office = ({
+    title,
+    photo,
+    address,
+    work_time
+}: TOffice) => {
     return (
         <div className='flex flex-col rounded-[14px] p-[12px] bg-white'>
-            <div className='h-[120px] bg-zinc-700 rounded-[10px]'>
-
-            </div>
+            <img
+                src={photo}
+                className='h-[160px] rounded-[10px] object-cover'
+            />
             <div className='flex flex-col pt-[10px] gap-[6px]'>
                 <span className='font-[500] text-[17px]'>
-                    Пункт обмена валют на Раваи
+                    {title}
                 </span>
                 <span>
-                    c 10:00 до 20:00, Без выходных
+                    {work_time.between}
                 </span>
                 <div className='flex items-center mb-[4px]'>
                     <div
@@ -77,15 +85,15 @@ const Office = () => {
                     />
                     <span className='text-[15px] dark:text-[#e0e0e0] leading-[20px] ml-[6px]'>
                         {/* {office?.work_time?.status} */}
-                        Сейчас открыто
+                        {work_time.status}
                     </span>
                 </div>
             </div>
             <div className='border-t mt-[10px] pt-[10px] flex flex-col'>
                 <span>
-                    Адресс
+                    {address}
                 </span>
-                <button className='flex items-center gap-[8px] justify-center py-[8px] bg-zinc-100 rounded-[10px]'>
+                <button className='flex items-center mt-[10px] gap-[8px] justify-center py-[8px] bg-zinc-100 rounded-[10px]'>
                     <MapPin size={19} />
                     <span>
                         Построить маршрут

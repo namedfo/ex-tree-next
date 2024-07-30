@@ -4,17 +4,17 @@ import { useState } from 'react'
 
 export default function Faq({
     data,
-    texts
+    text
 }: any) {
 
-    if (!texts || !data) return null
+    if (!text || !data) return null
 
     return (
         <div className='flex flex-col pt-[40px] pb-[30px]'>
             <span className='font-[500] text-[18px]'>
-                {texts.title}
+                {text.title}
             </span>
-            {data?.items?.map((item: any, index: number) => (
+            {data?.map((item: any, index: number) => (
                 <FaqItem
                     key={item.title}
                     item={item}

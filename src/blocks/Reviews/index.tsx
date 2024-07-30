@@ -1,20 +1,34 @@
-'use client'
-import Rate from 'rc-rate'
+import ClientRate from './ClientRate'
 
-export default function Reviews({
-    texts,
+async function getReviews(url: string) {
+    const res = await fetch(url, { cache: 'no-store' })
+
+    if (!res.ok) {
+        throw new Error('Failed to fetch data')
+    }
+
+    // console.log(res.json())
+
+    return res.json()
+}
+
+export default async function Reviews({
+    text,
     data
 }: any) {
 
-    if (!texts || !data) return null
+    if (!text || !data) return null
+
+    const reviews = await getReviews(data.url)
+
 
     return (
         <div className='flex flex-col gap-[10px]'>
             <span className='font-[500] text-[18px]'>
-                {texts?.title}
+                {text?.title}
             </span>
             <div className='mt-[4px] flex overflow-x-auto'>
-                {data?.items?.map((feedback: any) => (
+                {reviews?.result?.data?.map((feedback: any) => (
                     <Feedback key={feedback.text} feedback={feedback} />
                 ))}
             </div>
@@ -56,7 +70,7 @@ const Feedback = ({
 
                     </div>
                 </div>
-                <Rate
+                <ClientRate
                     defaultValue={feedback?.rating}
                     disabled
                     style={{ fontSize: 16 }}

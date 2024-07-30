@@ -1,49 +1,57 @@
 import { ReactNode } from 'react'
+import Advants from './Advants'
 import Banks from './Banks'
-import Calculator from './Calculator'
-import CardWithImage from './CardWithImage'
-import CourseList from './CourseList'
+import Buttons from './Buttons'
 import CourseShorts from './CourseShorts'
 import Faq from './Faq'
-import Map from './Map'
 import Notify from './Notify'
 import Offices from './Offices'
-import ProfitableTerms from './ProfitableTerms'
+import RatesList from './RatesList'
 import Reviews from './Reviews'
-import Royalty from './Royalty'
-import Text from './Text'
-import Title from './Title'
+import SingleImage from './SingleImage'
+import TextBackground from './TextBackground'
+import TextSimple from './TextSimple'
 
 
 
 const getBlock = (data: any): ReactNode | null => {
-    return <Block {...data} />
+    return <Block key={data.id} {...data} />
 }
 
 
 const Block = ({
     data,
-    texts,
+    text,
     styles,
     name
 }: any) => {
     const blocks: {
         [key: string]: ReactNode
     } = {
-        course_shorts: <CourseShorts {...{ data, texts }} />,
-        title: <Title {...{ data, texts }} />,
-        calculator: <Calculator {...{ data, texts }} />,
-        profitable_terms: <ProfitableTerms {...{ data, texts }} />,
-        banks: <Banks {...{ data, texts }} />,
-        offices: <Offices {...{ data, texts }} />,
-        royalty: <Royalty {...{ data, texts }} />,
-        reviews: <Reviews {...{ data, texts }} />,
-        course_list: <CourseList {...{ data, texts }} />,
-        faq: <Faq {...{ data, texts }} />,
-        text: <Text {...{ data, texts }} />,
-        card_with_image: <CardWithImage {...{ data, texts }} />,
-        notify: <Notify {...{ data, texts }} />,
-        map: <Map {...{ data, texts }} />
+        course_shorts: <CourseShorts {...{ data, text }} />,
+        buttons: <Buttons {...{ data, text }} />,
+        "content-block-width-2": <Advants {...{ data, text }} />,
+        "icons-grid": <Banks {...{ data, text }} />,
+        "text-block-simple": <TextSimple {...{ data, text }} />,
+        "text-block-background": <TextBackground {...{ data, text }} />,
+        "text-with-image": <Notify {...{ data, text }} />,
+        faq: <Faq {...{ data, text }} />,
+        image: <SingleImage {...{ data, text }} />,
+        "reviews-fetch": <Reviews {...{ data, text }} />,
+        offices: <Offices {...{ data, text }} />,
+        "exchange-rates": <RatesList {...{ data, text }} />
+        // calculator: <Calculator {...{ data, text }} />,
+        // profitable_terms: <ProfitableTerms {...{ data, text }} />,
+        // banks: <Banks {...{ data, text }} />,
+        // offices: <Offices {...{ data, text }} />,
+        // royalty: <Royalty {...{ data, text }} />,
+        // reviews: <Reviews {...{ data, text }} />,
+        // course_list: <CourseList {...{ data, text }} />,
+        // faq: <Faq {...{ data, texts }} />,
+        // text: <Text {...{ data, texts }} />,
+        // card_with_image: <CardWithImage {...{ data, text }} />,
+        // notify: <Notify {...{ data, text }} />,
+        // map: <Map {...{ data, text }} />
     }
 
 
