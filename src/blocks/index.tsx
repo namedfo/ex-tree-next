@@ -36,7 +36,7 @@ const Block = ({
         "text-block-simple": <TextSimple {...{ data, text }} />,
         "text-block-background": <TextBackground {...{ data, text }} />,
         "text-with-image": <Notify {...{ data, text }} />,
-        faq: <Faq {...{ data, text }} />,
+        faq: <Faq {...{ data, text, property }} />,
         image: <SingleImage {...{ data, text }} />,
         "reviews-fetch": <Reviews {...{ data, text }} />,
         offices: <Offices {...{ data, text, property }} />,

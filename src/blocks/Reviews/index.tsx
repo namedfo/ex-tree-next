@@ -1,3 +1,5 @@
+import { formatDistanceToNow } from 'date-fns'
+import { ru } from 'date-fns/locale'
 import ClientRate from './ClientRate'
 
 async function getReviews(url: string) {
@@ -37,9 +39,19 @@ export default async function Reviews({
 }
 
 
+
+function getRandomColor(array: string[]): string {
+    const randomIndex = Math.floor(Math.random() * array.length)
+    return array[randomIndex]
+}
+const colors = ['#7B1FA2', '#689F38', '#0097A7', '#0288D1', '#F4511E']
+
+
 const Feedback = ({
     feedback
 }: any) => {
+
+
     return (
         <div
             style={{ minWidth: '300px' }}
@@ -56,7 +68,7 @@ const Feedback = ({
                     ) : (
                         <div
                             style={{
-                                // backgroundColor: getRandomColor(colors),
+                                backgroundColor: getRandomColor(colors),
                             }}
                             className='h-[30px] w-[30px] flex items-center font-[700] text-[20px] text-white justify-center bg-transparent rounded-full'
                         >
@@ -84,10 +96,10 @@ const Feedback = ({
             </div>
             <div className='flex items-end h-[40px] justify-between'>
                 <span className='opacity-[0.6] text-[16px]'>
-                    {/* {formatDistanceToNow(
-                        new Date(feedback?.published_at * 1000),
-                        { addSuffix: true }
-                    )} */}
+                    {formatDistanceToNow(
+                        new Date(feedback.published_at * 1000),
+                        { locale: ru, addSuffix: true }
+                    )}
                 </span>
                 <a
                     className='text-indigo-600 text-[20px]'

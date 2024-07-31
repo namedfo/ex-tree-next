@@ -4,10 +4,13 @@ import { useState } from 'react'
 
 export default function Faq({
     data,
-    text
+    text,
+    property
 }: any) {
 
     if (!text || !data) return null
+
+    console.log(property)
 
     return (
         <div className='flex flex-col pt-[40px] pb-[30px]'>
@@ -17,8 +20,8 @@ export default function Faq({
             {data?.map((item: any, index: number) => (
                 <FaqItem
                     key={item.title}
+                    initShow={index + 1 <= property?.max_item_opened}
                     item={item}
-                    initIsShow={index + 1 <= 3}
                 />
             ))}
         </div>
@@ -26,8 +29,8 @@ export default function Faq({
 }
 
 
-const FaqItem = ({ item, initIsShow }: any) => {
-    const [isShow, setIsShow] = useState(initIsShow)
+const FaqItem = ({ item, initShow }: any) => {
+    const [isShow, setIsShow] = useState(initShow)
 
     return (
         <div className='bg-white rounded-[14px] p-[14px] mt-[8px] flex flex-col'>

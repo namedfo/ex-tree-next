@@ -40,15 +40,15 @@ export default async function RatesList({
                 <Client
                     all={(
                         <>
-                            {Object.values(rates)?.map((item: any) => (
-                                <Server key={item.id} {...item} />
+                            {Object.entries(rates)?.map(([key, item]: any) => (
+                                <Server key={key} {...{ ...item, currency: key }} />
                             ))}
                         </>
                     )}
                     small={(
                         <>
-                            {Object.values(rates)?.slice(0, property?.max_rate_show ?? 3).map((item: any) => (
-                                <Server key={item.id} {...item} />
+                            {Object.entries(rates)?.slice(0, property?.max_rate_show ?? 3).map(([key, item]: any) => (
+                                <Server key={key} {...{ ...item, currency: key }} />
                             ))}
                         </>
                     )}
