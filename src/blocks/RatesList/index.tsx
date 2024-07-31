@@ -18,12 +18,10 @@ async function getRates(url: string) {
 export default async function RatesList({
     text,
     data,
+    property
 }: any) {
-    console.log(data)
 
     const { rates } = await getRates(data.url)
-
-    console.log(rates)
 
     return (
         <div className='flex flex-col mt-[40px] pt-[12px] bg-white rounded-[14px]'>
@@ -49,7 +47,7 @@ export default async function RatesList({
                     )}
                     small={(
                         <>
-                            {Object.values(rates)?.slice(0, data?.init_count ?? 3).map((item: any) => (
+                            {Object.values(rates)?.slice(0, property?.max_rate_show ?? 3).map((item: any) => (
                                 <Server key={item.id} {...item} />
                             ))}
                         </>

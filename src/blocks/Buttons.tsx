@@ -1,5 +1,6 @@
 import cn from 'clsx'
 import { LockKeyhole } from 'lucide-react'
+import Link from 'next/link'
 
 
 
@@ -50,7 +51,9 @@ export default function Buttons({
                 </div>
                 <div className='flex flex-wrap text-[14px] gap-[10px]'>
                     {data?.map((el: IBtn, index: number) => (
-                        <button
+                        <Link
+                            href={el.link}
+                            target='_blank'
                             style={{
                                 backgroundColor: el.backgroundColor,
 
@@ -69,7 +72,7 @@ export default function Buttons({
                             <span>
                                 {el.title}
                             </span>
-                        </button>
+                        </Link>
                     ))}
                 </div>
             </div>

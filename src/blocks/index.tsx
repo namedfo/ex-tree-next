@@ -23,6 +23,7 @@ const Block = ({
     data,
     text,
     styles,
+    property,
     name
 }: any) => {
     const blocks: {
@@ -38,8 +39,8 @@ const Block = ({
         faq: <Faq {...{ data, text }} />,
         image: <SingleImage {...{ data, text }} />,
         "reviews-fetch": <Reviews {...{ data, text }} />,
-        offices: <Offices {...{ data, text }} />,
-        "exchange-rates": <RatesList {...{ data, text }} />
+        offices: <Offices {...{ data, text, property }} />,
+        "exchange-rates": <RatesList {...{ data, text, property }} />
         // calculator: <Calculator {...{ data, text }} />,
         // profitable_terms: <ProfitableTerms {...{ data, text }} />,
         // banks: <Banks {...{ data, text }} />,

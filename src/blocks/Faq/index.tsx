@@ -35,13 +35,13 @@ const FaqItem = ({ item, initIsShow }: any) => {
                 onClick={() => setIsShow((prevIsShow: boolean) => !prevIsShow)}
                 className='flex cursor-pointer items-center justify-between'
             >
-                <span className='flex-1 flex font-[550] dark:text-[#e0e0e0]'>{item.title}</span>
+                <span className='flex-1 flex font-[550]'>{item.title}</span>
                 <div className='w-[30px] flex justify-start'>
                     {isShow ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                 </div>
             </div>
             {isShow && (
-                <p className='leading-[22px] dark:text-[#e0e0e0] pt-[10px] border-t mt-[10px]'>
+                <p className='leading-[22px] pt-[10px] border-t mt-[10px]'>
                     {item.content}
                 </p>
             )}

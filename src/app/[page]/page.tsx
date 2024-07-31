@@ -1,6 +1,7 @@
 import getBlock from '@/blocks'
 import PageLayout from '@/layouts/PageLayout'
 import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
 
 
@@ -8,7 +9,7 @@ async function getData(page: string) {
     const res = await fetch(`https://ex-crm.com/api/landing`, { cache: 'no-store' })
 
     if (!res.ok) {
-        throw new Error('Failed to fetch data')
+        notFound()
     }
 
     // console.log(res.json())

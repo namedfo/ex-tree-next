@@ -18,6 +18,10 @@
   display: none;
 }
 
+button {
+  outline: none;
+}
+
 
 html,
 body {

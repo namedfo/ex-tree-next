@@ -23,7 +23,7 @@ export default function TextSimple({
 }: ITextProps) {
     return (
         <div className='flex flex-col mt-[40px] gap-[10px] p-[16px] rounded-[14px]'>
-            <span className='font-[500] mb-[10px] pre-wrap ml-[10px] text-[18px]'>
+            <span className='font-[500] mb-[10px] pre-wrap text-[18px]'>
                 {text?.title}
             </span>
             {data?.map((el: IItem) => (

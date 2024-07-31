@@ -1,30 +1,14 @@
-'use client'
-import { MapPin } from 'lucide-react'
-import { useState } from 'react'
+import Client from './Client'
+import Server from './Server'
 
 
-
-type TOffice = {
-    id: number
-    title: string
-    photo: string
-    work_time: {
-        between: string
-        status: string
-        status_type: string
-    }
-    address: string
-}
 
 
 export default function Offices({
     data,
-    text
+    text,
+    property
 }: any) {
-    const [isShowList, setIsShowList] = useState(false)
-
-
-    const toggleIsShowList = () => setIsShowList(prevIsShow => !prevIsShow)
 
 
     return (
@@ -32,7 +16,23 @@ export default function Offices({
             <span className='font-[500] text-[18px]'>
                 Адреса офисов
             </span>
-            <div className='flex flex-col gap-[10px]'>
+            <Client
+                all={(
+                    <div className='flex flex-col gap-[20px]'>
+                        {data?.map((item: any) => (
+                            <Server key={item.id} {...item} />
+                        ))}
+                    </div>
+                )}
+                small={(
+                    <div className='flex flex-col gap-[20px]'>
+                        {data?.slice(0, property?.max_office_show ?? 3).map((item: any) => (
+                            <Server key={item.id} {...item} />
+                        ))}
+                    </div>
+                )}
+            />
+            {/* <div className='flex flex-col gap-[10px]'>
                 {data?.map((office: TOffice) => (
                     <Office
                         key={office.id}
@@ -48,58 +48,7 @@ export default function Offices({
                     ? 'Скрыть офисы'
                     : 'Показать все офисы'
                 }
-            </button>
-        </div>
-    )
-}
-
-
-const Office = ({
-    title,
-    photo,
-    address,
-    work_time
-}: TOffice) => {
-    return (
-        <div className='flex flex-col rounded-[14px] p-[12px] bg-white'>
-            <img
-                src={photo}
-                className='h-[160px] rounded-[10px] object-cover'
-            />
-            <div className='flex flex-col pt-[10px] gap-[6px]'>
-                <span className='font-[500] text-[17px]'>
-                    {title}
-                </span>
-                <span>
-                    {work_time.between}
-                </span>
-                <div className='flex items-center mb-[4px]'>
-                    <div
-                        style={{
-                            background:
-                                // office?.work_time?.status_type === 'closed'
-                                // ? 'red'
-                                '#48CF38',
-                        }}
-                        className='rounded-full shadow-status h-[8px] w-[8px]'
-                    />
-                    <span className='text-[15px] dark:text-[#e0e0e0] leading-[20px] ml-[6px]'>
-                        {/* {office?.work_time?.status} */}
-                        {work_time.status}
-                    </span>
-                </div>
-            </div>
-            <div className='border-t mt-[10px] pt-[10px] flex flex-col'>
-                <span>
-                    {address}
-                </span>
-                <button className='flex items-center mt-[10px] gap-[8px] justify-center py-[8px] bg-zinc-100 rounded-[10px]'>
-                    <MapPin size={19} />
-                    <span>
-                        Построить маршрут
-                    </span>
-                </button>
-            </div>
+            </button> */}
         </div>
     )
 }
