@@ -11,6 +11,7 @@ import Reviews from './Reviews'
 import SingleImage from './SingleImage'
 import TextBackground from './TextBackground'
 import TextSimple from './TextSimple'
+import Title from './Title'
 
 
 
@@ -40,7 +41,8 @@ const Block = ({
         image: <SingleImage {...{ data, text }} />,
         "reviews-fetch": <Reviews {...{ data, text }} />,
         offices: <Offices {...{ data, text, property }} />,
-        "exchange-rates": <RatesList {...{ data, text, property }} />
+        "exchange-rates": <RatesList {...{ data, text, property }} />,
+        title: <Title {...{ data, text, property }} />
         // calculator: <Calculator {...{ data, text }} />,
         // profitable_terms: <ProfitableTerms {...{ data, text }} />,
         // banks: <Banks {...{ data, text }} />,

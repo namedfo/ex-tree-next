@@ -1,6 +1,5 @@
 import { formatDistanceToNow } from 'date-fns'
 import { ru } from 'date-fns/locale'
-import ClientRate from './ClientRate'
 
 async function getReviews(url: string) {
     const res = await fetch(url, { cache: 'no-store' })
@@ -82,12 +81,12 @@ const Feedback = ({
 
                     </div>
                 </div>
-                <ClientRate
+                {/* <ClientRate
                     defaultValue={feedback?.rating}
-                    disabled
+                    disabled={true}
                     style={{ fontSize: 16 }}
                     character={<i className='anticon anticon-star' />}
-                />
+                /> */}
             </div>
             <div className='h-[110px] overflow-hidden w-full'>
                 <p className='text-[16px] truncate-text leading-[20px] w-full pb-[10px] font-[400] mt-[10px]'>

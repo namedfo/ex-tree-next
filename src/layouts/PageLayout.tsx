@@ -2,11 +2,12 @@ import Header from '@/components/Header'
 import { Infinity } from 'lucide-react'
 
 export default function PageLayout({
-    children
+    children,
+    menu
 }: any) {
     return (
         <main className='flex flex-col gap-[60px] items-center overflow-y-auto h-full relative'>
-            <Header />
+            <Header menu={menu} />
             <div className='h-[50px]' />
             <div
                 style={{

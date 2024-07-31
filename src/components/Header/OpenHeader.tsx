@@ -1,11 +1,14 @@
 import { X } from 'lucide-react'
+import Link from 'next/link'
 import { useRef } from 'react'
 import { useOnClickOutside } from 'usehooks-ts'
 import ChangeLanguage from './ChangeLanguage'
 import Logo from './Logo'
 import { useHeaderStore } from './useHeaderStore'
 
-export default function OpenHeader() {
+export default function OpenHeader({
+    menu
+}: any) {
     const isShow = useHeaderStore(state => state.isShow)
     const toggleIsShow = useHeaderStore(state => state.toggleIsShow)
 
@@ -21,7 +24,7 @@ export default function OpenHeader() {
         <div className='fixed h-full w-full z-[99] left-0 top-0 bg-[#00000017]'>
             <div ref={ref} className='w-[98%] sm:w-[640px] bg-white shadow-select rounded-[14px] absolute left-[50%] translate-x-[-50%] top-[4px] flex flex-col min-h-[42px]'>
                 <Main toggleIsShow={toggleIsShow} />
-                <Links />
+                <Links menu={menu} />
                 <div className='flex pt-[6px] pb-[10px] px-[10px]'>
                     <button
                         className='bg-[#2E81FF] py-[10px] text-[15px] rounded-[10px] w-full text-white'
@@ -34,21 +37,19 @@ export default function OpenHeader() {
     )
 }
 
-const Links = () => {
+const Links = ({ menu }: any) => {
+    
     return (
         <div className='flex flex-col px-[20px] pt-[6px] pb-[2px]'>
-            <div className='text-blue-700 py-[8px] flex border-t justify-center'>
-                Адреса офисов
-            </div>
-            <div className='text-blue-700 py-[8px] flex border-t justify-center'>
-                Партнерам
-            </div>
-            <div className='text-blue-700 py-[8px] flex border-t justify-center'>
-                Связь с оператором 24/7
-            </div>
-            <div className='text-blue-700 py-[8px] flex border-t justify-center'>
-                Контакты
-            </div>
+            {menu?.map((el: any) => (
+                <Link
+                    key={el.url}
+                    href={el.url}
+                    className='text-blue-700 py-[8px] flex border-t justify-center'
+                >
+                    {el.title}
+                </Link>
+            ))}
         </div>
     )
 }

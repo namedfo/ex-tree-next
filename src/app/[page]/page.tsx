@@ -12,8 +12,6 @@ async function getData(page: string) {
         notFound()
     }
 
-    // console.log(res.json())
-
     return res.json()
 }
 
@@ -44,7 +42,9 @@ export default async function Page({
     const data = await getData(params.page)
 
     return (
-        <PageLayout>
+        <PageLayout
+            menu={data?.properties?.menuLinks}
+        >
             {data?.blocks?.map((block: any) => getBlock(block))}
         </PageLayout>
     )
