@@ -1,16 +1,21 @@
 'use client'
-// import '../../assets/index.less'
+import { Rating, RoundedStar } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
-import Rate from 'rc-rate'
 
 
-export default function ClientRate(props: any) {
+export default function ClientRate({ value }: any) {
 
-    console.log(props)
-    return <Rate
-        defaultValue={props.defaultValue}
-        disabled={props.disabled}
-        style={props.style}
-        character={props.character}
-    />
+    return (
+        <div className='w-[80px]'>
+            <Rating
+                value={value}
+                itemStyles={{
+                    itemShapes: RoundedStar,
+                    activeFillColor: '#f59e0b', 
+                    inactiveFillColor: '#ffedd5'
+                }}
+            />
+        </div>
+    )
 }

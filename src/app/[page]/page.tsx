@@ -23,12 +23,7 @@ export async function generateMetadata(
 
     const data = await getData(params.slug)
 
-
-
-    return {
-        title: data?.ceo?.title,
-        description: data?.ceo?.description
-    }
+    return data.properties?.meta
 }
 
 
